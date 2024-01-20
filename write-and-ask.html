@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write and Ask | Addi-blogs </title>
+    <link rel="stylesheet" href="write-and-ask-styles.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <!-- Replace with your logo -->
+            <img src="path_to_logo.png" alt="Logo">
+        </div>
+        <button class="logout-button">Logout</button>
+    </div>
+
+    <div class="content">
+        <h1>Creating Blog or Ask Question</h1>
+
+        <div class="form-container">
+            <form id="writeAskForm">
+                <!-- Title -->
+                <label for="title">Title:</label>
+                <textarea id="title" placeholder="Enter title here..."></textarea>
+
+                <!-- Category Selection -->
+                <label for="category">Select Category:</label>
+                <select id="category">
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="js">JavaScript</option>
+                    <option value="react">React</option>
+                    <option value="nodejs">Node.js</option>
+                    <option value="mongodb">MongoDB</option>
+                    <option value="bootstrap">Bootstrap</option>
+                </select>
+
+                <!-- Type and Status Container -->
+                <div class="type-status-container">
+                    <!-- Type Selection -->
+                    <div class="type-selection">
+                        <label>Type:</label>
+                        <input type="radio" id="blog" name="type" value="blog">
+                        <label for="blog">Blog</label>
+                        <input type="radio" id="question" name="type" value="question">
+                        <label for="question">Question</label>
+                    </div>
+
+                    <!-- Status Selection -->
+                    <div class="status-selection">
+                        <label>Status:</label>
+                        <input type="radio" id="active" name="status" value="active">
+                        <label for="active">Active</label>
+                        <input type="radio" id="inactive" name="status" value="inactive">
+                        <label for="inactive">Inactive</label>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <label for="description">Description:</label>
+                <textarea id="description" placeholder="Enter description here..."></textarea>
+
+                <!-- Buttons -->
+                <button type="submit" class="save-button">Save</button>
+                <button type="button" class="cancel-button" onclick="clearForm()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function clearForm() {
+            document.getElementById('writeAskForm').reset();
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

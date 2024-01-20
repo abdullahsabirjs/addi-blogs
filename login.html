@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up Page| Addi-blogs</title>
+    <link rel="stylesheet" href="login-styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="logo">
+                <!-- Replace with your logo -->
+                <img src="path_to_logo.png" alt="Logo">
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="form form-login">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Log In</button>
+            
+                <p class="toggle-form">Don't have an account? <a href="#" onclick="toggleForm()">Sign up</a></p>
+            
+                <!-- Login with Google Button -->
+                <button type="button" class="google-login">Login with Google</button>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="signUpForm" class="form form-signup hidden">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+                <p class="toggle-form">Already have an account? <a href="#" onclick="toggleForm()">Log In</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm() {
+            var loginForm = document.getElementById('loginForm');
+            var signUpForm = document.getElementById('signUpForm');
+            loginForm.classList.toggle('hidden');
+            signUpForm.classList.toggle('hidden');
+        }
+
+        document.getElementById('login-form').onsubmit = function(event) {
+        event.preventDefault();
+        
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        
+        // Example: Check if the credentials are correct
+        if(email === "user@example.com" && password === "password123") {
+            // Correct credentials, set isLoggedIn in localStorage
+            localStorage.setItem('isLoggedIn', 'true');
+            window.location.href = 'homepage.html'; // Redirect to homepage
+        } else {
+            alert('Incorrect email or password. Please try again.');
+        }
+    }
+    </script>
+
+
+<script src="script.js"></script>
+</body>
+</html>

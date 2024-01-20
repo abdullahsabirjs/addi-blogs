@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div id="logo">Addi-blogs</div>
+    <div id="search-bar">
+        <input type="text" placeholder="Search Blog OR Query">
+        <button type="submit">Search</button>
+    </div>
+    <div id="user-controls">
+        <span id="user-details" style="display:none;">User details shown here</span>
+        <button id="write-or-ask-button" disabled>Write or Ask</button>
+        <button id="login-button" onclick="location.href='login.html'">Login</button>
+        
+    </div>
+</header>
+
+<main>
+    <article id="article">
+        <h1>React JS Vs Javascript What's The Difference</h1>
+        <div id="short-content">
+            <p>JavaScript is a fantastic front-end programming language... <a href="#" class="read-more" onclick="expandArticle()">Read More...</a></p>
+        </div>
+        <div id="full-content" style="display:none;">
+            <!-- Yahaan aapka pura article content hoga jo aapko dikhaana hai -->
+            <p>Full article content here. This is a detailed explanation of the topic...</p>
+            <section class="comment-section">
+                <h2>Add Your Thought</h2>
+                <textarea placeholder="Reply"></textarea>
+                <button type="submit">Submit</button>
+            </section>
+            <section class="previous-replies">
+                <h2>Previous Replies</h2>
+                <!-- Repeat this block for each comment -->
+                <div class="comment">
+                    <div class="user-image">User Image</div>
+                    <div class="comment-content">
+                        <div class="user-name">Muhammad Ahmed</div>
+                        <div class="comment-text">Well Done, Nice Explanation</div>
+                        <div class="comment-time">about 1 min ago</div>
+                        <div class="like-icon">👍</div>
+                    </div>
+                </div>
+                <!-- Repeat end -->
+            </section>
+        </div>
+        <footer>
+            <p>By Muhammad Ameen</p>
+            <time datetime="2024-01-01">Jan 01 2024</time>
+        </footer>
+    </article>
+</main>
+
+<script>
+// Add all of your JavaScript from script.js here
+function checkUserLoggedIn() {
+    const userDetails = document.getElementById('user-details');
+    const loginButton = document.getElementById('login-button');
+    // Assuming you have a function to check if the user is logged in
+    if (isLoggedIn()) {
+        userDetails.style.display = 'block';
+        loginButton.style.display = 'none';
+    } else {
+        userDetails.style.display = 'none';
+        loginButton.style.display = 'block';
+    }
+}
+
+function isLoggedIn() {
+    // Placeholder function to check login status
+    // Replace with actual login check logic
+    return false; // Assuming the user is not logged in by default
+}
+
+function expandArticle() {
+    // Hide the short content and 'Read More' link
+    document.getElementById('short-content').style.display = 'none';
+    
+    // Show the full content
+    document.getElementById('full-content').style.display = 'block';
+}
+
+window.onload = checkUserLoggedIn;
+
+const loginLogoutButton = document.getElementById('login-logout-button');
+    const writeOrAskButton = document.getElementById('write-or-ask-button');
+
+    // Check if the user is logged in
+    let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+    function updateUI() {
+        if (isLoggedIn) {
+            loginLogoutButton.textContent = 'Logout';
+            loginLogoutButton.onclick = function() {
+                // Logout logic
+                localStorage.removeItem('isLoggedIn');
+                location.reload(); // Refresh the page to update UI
+            };
+            writeOrAskButton.disabled = false;
+            writeOrAskButton.onclick = function() {
+                location.href = 'writeorask.html'; // Redirect to Write or Ask page
+            };
+        } else {
+            loginLogoutButton.textContent = 'Login';
+            loginLogoutButton.onclick = function() {
+                location.href = 'login.html'; // Redirect to Login page
+            };
+            writeOrAskButton.disabled = true;
+        }
+    }
+
+    // Run this function when the page loads
+    updateUI();
+</script>
+</body>
+</html>
