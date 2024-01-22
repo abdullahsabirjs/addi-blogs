@@ -44,22 +44,6 @@
             loginForm.classList.toggle('hidden');
             signUpForm.classList.toggle('hidden');
         }
-
-        document.getElementById('login-form').onsubmit = function(event) {
-        event.preventDefault();
-        
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        
-        // Example: Check if the credentials are correct
-        if(email === "user@example.com" && password === "password123") {
-            // Correct credentials, set isLoggedIn in localStorage
-            localStorage.setItem('isLoggedIn', 'true');
-            window.location.href = 'homepage.html'; // Redirect to homepage
-        } else {
-            alert('Incorrect email or password. Please try again.');
-        }
-    }
     </script>
 
 
